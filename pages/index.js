@@ -32,10 +32,17 @@ export default function Home() {
         <Widget>
 
           <Widget.Header>
-            <h1>The legend of Zelda</h1>
+            <h1>Nerd Quiz</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>Lorem ipsum color sit amet...</p>
+            <p>O QUIZ NERD mais completo do Brasil... É o que dizem.</p>
+            <p>Aqui nós veremos:</p>
+            <ol>
+              <li>Animes</li>
+              <li>Séries</li>
+              <li>Filmes</li>
+              <li>Jogos</li>
+            </ol>
           </Widget.Content>
 
         </Widget>
@@ -43,7 +50,12 @@ export default function Home() {
 
           <Widget.Content>
           <h1>Quiz da Galera</h1>
-            <p>Lorem ipsum color sit amet...</p>
+            <ul>
+              <li>Quiz 01</li>
+              <li>Quiz 01</li>
+              <li>Quiz 01</li>
+              <li>Quiz 01</li>
+            </ul>
           </Widget.Content>
 
         </Widget>
