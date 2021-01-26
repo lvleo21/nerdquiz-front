@@ -26,31 +26,6 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
   }
-
-  .btn{
-    background-color: #0d6efd;
-    color:white;
-    border-radius:0.4rem;
-    border: solid 1px #4e87dd;
-    padding:.5rem;
-  }
-
-  .btn:hover{
-    background-color:#4e87dd;
-  }
-
-  .form-control{
-    border-radius:0.1rem;
-    border: solid 2px white;
-    height:1.8rem;
-    width:100%;
-    font-size:16px;
-  }
-
-  .form-control:active{
-    border: solid 2px #4e87dd;
-  }
-
 `;
 
 const { theme } = db;

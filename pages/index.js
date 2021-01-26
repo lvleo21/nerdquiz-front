@@ -52,20 +52,19 @@ export default function Home() {
                 router.push(`/quiz?name=${name}`);
               }
             }>
-              <label>Nome: {name}</label>
-              <br/>
-              <input className='form-control' placeholder="Digite seu nome: " onChange={
-                function(infosDoEvento){
+             
+              <input placeholder="Digite seu nome: " onChange={
+                function (infosDoEvento) {
                   //! State
-                 
+
                   setName(infosDoEvento.target.value)
                   // name = ; //! pegando o value do input, mas pq o target ?
                   // console.log(name);
                 }
-              }/>
-              
-              <button className='btn' type="submit" disabled={name.length === 0}>
-                Vamos jogar ?
+              } />
+
+              <button type="submit" disabled={name.length === 0}>
+                Sr. {name}, Vamos jogar ?
               </button>
             </form>
 
