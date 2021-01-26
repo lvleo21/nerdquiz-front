@@ -1,17 +1,12 @@
 import styled from 'styled-components';
+import Head from 'next/head';
 import db from '../db.json';
+import { useRouter } from 'next/router';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 
-
-// const BackgroundImage = styled.div`
-//   background-image:url(${db.bg});
-//   flex:1;
-//   background-size:cover;
-//   background-position:center;
-// `;
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -24,46 +19,79 @@ export const QuizContainer = styled.div`
   }
 `;
 
+
+//! tupla = (arg1, arg2)
+//! arg1, arg2 = tupla
+
 export default function Home() {
+
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+
   return (
-    <QuizBackground backgroundImage = {db.bg}>
+    <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <link rel="icon" type="image/png" href="https://img.icons8.com/fluent/48/000000/controller.png" />
+
+        <title>GameQuiz - Vai encarar ?</title>
+      </Head>
+
       <QuizContainer>
 
         <Widget>
 
           <Widget.Header>
-            <h1>Nerd Quiz</h1>
+            <h1>Game Quiz</h1>
           </Widget.Header>
+
           <Widget.Content>
-            <p>O QUIZ NERD mais completo do Brasil... É o que dizem.</p>
-            <p>Aqui nós veremos:</p>
-            <ol>
-              <li>Animes</li>
-              <li>Séries</li>
-              <li>Filmes</li>
-              <li>Jogos</li>
-            </ol>
+
+            <form onSubmit={
+              function (infosdoEvento) {
+                infosdoEvento.preventDefault();
+                router.push(`/quiz?name=${name}`);
+              }
+            }>
+              <label>Nome: {name}</label>
+              <br/>
+              <input className='form-control' placeholder="Digite seu nome: " onChange={
+                function(infosDoEvento){
+                  //! State
+                 
+                  setName(infosDoEvento.target.value)
+                  // name = ; //! pegando o value do input, mas pq o target ?
+                  // console.log(name);
+                }
+              }/>
+              
+              <button className='btn' type="submit" disabled={name.length === 0}>
+                Vamos jogar ?
+              </button>
+            </form>
+
+
           </Widget.Content>
 
         </Widget>
+
         <Widget>
 
           <Widget.Content>
-          <h1>Quiz da Galera</h1>
+            <h1>Quiz da Galera</h1>
             <ul>
               <li>Quiz 01</li>
-              <li>Quiz 01</li>
-              <li>Quiz 01</li>
-              <li>Quiz 01</li>
+              <li>Quiz 02</li>
+              <li>Quiz 03</li>
+              <li>Quiz 04</li>
             </ul>
           </Widget.Content>
 
         </Widget>
 
-        <Footer></Footer>
+        <Footer />
       </QuizContainer>
-    <GitHubCorner projectUrl = 'https://github.com/lvleo21/' /> 
-    {/* Passar url */}
+      <GitHubCorner projectUrl="https://github.com/lvleo21/" />
+
     </QuizBackground>
-  )
+  );
 }
